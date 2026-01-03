@@ -92,7 +92,7 @@ This suggests that assortment depth and customer demand are structurally higher 
 
 **2. Why Sales Peak in Autumn**
 
-![Autumn Sales](powerbi/Screenshots/autumn%20Sales.PNG)
+![Autumn Sales](powerbi/Screenshots/Autumn%20Sales.PNG)
 
 Autumn accounts for the highest total sales value (~$0.31bn), outperforming Winter, Spring, and Summer.
 
@@ -110,7 +110,7 @@ Conclusion: Autumn sales strength is driven by both volume (assortment breadth) 
 
 **3. Pricing Has a Weak Correlation with Sales Volume**
 
-![Pricing Analysis](powerbi/Screenshots/pricing%20Analysis.PNG)
+![Pricing Analysis](powerbi/Screenshots/Pricing%20Analysis.PNG)
 
 The scatter analysis of price vs sales volume shows no strong linear relationship.
 
