@@ -82,7 +82,7 @@ The resulting structure includes:
 
 **1. Overall Sales Performance Is Driven by Product Mix and Seasonality**
 
-![Overall Performance](powerbi/screenshots/home.png)
+![Overall Performance](powerbi/Screenshots/home.png)
 
 Total sales value reached $884.6M, generated from 22M units sold.
 
@@ -92,7 +92,7 @@ This suggests that assortment depth and customer demand are structurally higher 
 
 **2. Why Sales Peak in Autumn**
 
-![Autumn Sales](powerbi/screenshots/autumn_sales.png)
+![Autumn Sales](powerbi/Screenshots/autumn%20Sales.png)
 
 Autumn accounts for the highest total sales value (~$0.31bn), outperforming Winter, Spring, and Summer.
 
@@ -110,7 +110,7 @@ Conclusion: Autumn sales strength is driven by both volume (assortment breadth) 
 
 **3. Pricing Has a Weak Correlation with Sales Volume**
 
-![Pricing Analysis](powerbi/screenshots/pricing_analysis.png)
+![Pricing Analysis](powerbi/Screenshots/pricing%20Analysis.png)
 
 The scatter analysis of price vs sales volume shows no strong linear relationship.
 
@@ -132,7 +132,7 @@ Implication: Price optimisation alone is unlikely to significantly increase volu
 
 **4. Promotions Increase Sales Efficiency, Not Total Revenue Share**
 
-![Promotions Impact](powerbi/screenshots/promotions.png)
+![Promotions Impact](powerbi/Screenshots/Promotions.png)
 
 Promotional sales account for 49.8% of total sales value, nearly identical to non-promoted sales.
 
@@ -152,7 +152,7 @@ Conclusion: Promotions do not cannibalise revenue, but instead increase sales co
 
 **5. Product Visibility Has a Measurable but Secondary Impact**
 
-![Merchandising](powerbi/screenshots/merchandising.png)
+![Merchandising](powerbi/Screenshots/Merchandising.png)
 
 Products placed Front of Store generate the highest average sales volume per product (~1,103 units).
 
@@ -168,7 +168,7 @@ Product quality, pricing, and category matter more than location alone.
 
 **6. Product Attributes Linked to Higher Performance**
 
-![Product Attributes](powerbi/screenshots/product_attributes.png)
+![Product Attributes](powerbi/Screenshots/Product%20Attributes.png)
 
 Gender
 
