@@ -82,7 +82,7 @@ The resulting structure includes:
 
 **1. Overall Sales Performance Is Driven by Product Mix and Seasonality**
 
-![Overall Performance](powerbi/screenshots/1.%20Home.PNG)
+![Overall Performance](powerbi/screenshots/home.png)
 
 Total sales value reached $884.6M, generated from 22M units sold.
 
@@ -91,6 +91,8 @@ The Women’s section contributes the majority of revenue (67.7%), compared to 3
 This suggests that assortment depth and customer demand are structurally higher in the Women’s category, making it the primary revenue driver.
 
 **2. Why Sales Peak in Autumn**
+
+![Autumn Sales](powerbi/screenshots/autumn_sales.png)
 
 Autumn accounts for the highest total sales value (~$0.31bn), outperforming Winter, Spring, and Summer.
 
@@ -107,6 +109,8 @@ Cold-weather categories (jackets, sweaters, jeans) consistently outperform light
 Conclusion: Autumn sales strength is driven by both volume (assortment breadth) and higher average item value, rather than seasonality alone.
 
 **3. Pricing Has a Weak Correlation with Sales Volume**
+
+![Pricing Analysis](powerbi/screenshots/pricing_analysis.png)
 
 The scatter analysis of price vs sales volume shows no strong linear relationship.
 
@@ -128,6 +132,8 @@ Implication: Price optimisation alone is unlikely to significantly increase volu
 
 **4. Promotions Increase Sales Efficiency, Not Total Revenue Share**
 
+![Promotions Impact](powerbi/screenshots/promotions.png)
+
 Promotional sales account for 49.8% of total sales value, nearly identical to non-promoted sales.
 
 However, promotions dramatically improve per-product performance:
@@ -146,6 +152,8 @@ Conclusion: Promotions do not cannibalise revenue, but instead increase sales co
 
 **5. Product Visibility Has a Measurable but Secondary Impact**
 
+![Merchandising](powerbi/screenshots/merchandising.png)
+
 Products placed Front of Store generate the highest average sales volume per product (~1,103 units).
 
 End-caps and aisles perform slightly lower but remain close in absolute terms.
@@ -159,6 +167,8 @@ Visibility boosts volume modestly, but does not radically change revenue per pro
 Product quality, pricing, and category matter more than location alone.
 
 **6. Product Attributes Linked to Higher Performance**
+
+![Product Attributes](powerbi/screenshots/product_attributes.png)
 
 Gender
 
