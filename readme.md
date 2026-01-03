@@ -92,7 +92,7 @@ This suggests that assortment depth and customer demand are structurally higher 
 
 **2. Why Sales Peak in Autumn**
 
-![Autumn Sales](powerbi/Screenshots/Autumn%20Sales.PNG)
+![Autumn Sales](powerbi/Screenshots/Autum%20Sales.PNG)
 
 Autumn accounts for the highest total sales value (~$0.31bn), outperforming Winter, Spring, and Summer.
 
