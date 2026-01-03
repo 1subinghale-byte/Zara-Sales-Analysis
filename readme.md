@@ -82,7 +82,7 @@ The resulting structure includes:
 
 **1. Overall Sales Performance Is Driven by Product Mix and Seasonality**
 
-(powerbi/screenshots/1.%20Home.PNG)
+![Overall Performance](powerbi/screenshots/1.%20Home.PNG)
 
 Total sales value reached $884.6M, generated from 22M units sold.
 
