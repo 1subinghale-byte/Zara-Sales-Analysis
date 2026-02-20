@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 387,
+            "y": 0
+          },
+          "nodeIndex": "Product",
+          "nodeLineageTag": "b3d40008-3bd7-4475-9b51-6d3d8220c0c7",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -26
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "a0523a40-3aa2-4e7e-ad55-63cf998f4bb8",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 683,
+            "y": 70
+          },
+          "nodeIndex": "_measures",
+          "nodeLineageTag": "40e385db-f7cf-4b0d-9ee1-52865eaf8d81",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 229,
+            "y": 415
+          },
+          "nodeIndex": "Promotion",
+          "nodeLineageTag": "d675f99b-19a2-41a6-be10-ce91bda496ea",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

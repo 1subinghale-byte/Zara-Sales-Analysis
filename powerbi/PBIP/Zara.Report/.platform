@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Zara"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "94bfb46e-fd32-4761-8864-dba9d07c6812"
+  }
+}

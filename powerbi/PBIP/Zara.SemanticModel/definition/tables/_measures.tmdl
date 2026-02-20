@@ -1,0 +1,157 @@
+table _measures
+	lineageTag: 40e385db-f7cf-4b0d-9ee1-52865eaf8d81
+
+	measure 'Total Sales Vol' = SUM(Sales[sales_volume])
+		formatString: 0
+		lineageTag: 58e86e1d-630f-4af6-a865-dbd7dbbf7d20
+
+	measure 'Total Sales Value' = SUM(Sales[sales_value])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b477b7c7-7a3e-4d28-9bbe-ac609839f745
+
+	measure 'Avg Price' = AVERAGE(Sales[price])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7c66f94e-9579-44f9-b1c4-e822ecfc4343
+
+	measure 'Promotion Sales %' = ```
+			
+			VAR PromotionalSales =
+			    CALCULATE(
+			        [Total Sales Value],
+			        Sales[is_promoted] = 1
+			    )
+			RETURN
+			DIVIDE(PromotionalSales, [Total Sales Value]) 
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 018c5b18-794f-45f3-9f70-e3fe16bd6856
+
+	measure rank_product =
+			
+			RANKX(
+			    ALL(Sales[Product_ID]),
+			    [Total Sales Value],,desc)
+		formatString: 0
+		lineageTag: ead6fd3d-5e0e-40db-96d9-765fc02c22a6
+
+	measure 'Cumulative Sales' =
+			
+			var r = [rank_ProdType]
+			RETURN
+			CALCULATE(
+			        [Total Sales Value],
+			        FILTER(ALL('Product'[Type]),
+			        [rank_ProdType]<=(r)
+			        )
+			)
+		lineageTag: 7d78b7e6-8558-4fb8-8f54-6ebc5d1fb284
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure rank_ProdType = ```
+			
+			    RANKX(ALL('Product'[Type]),
+			        [Total Sales Value],,
+			        DESC,
+			        Dense
+			    )
+			```
+		formatString: 0
+		lineageTag: b3f6d352-fb55-4e5d-bad5-fb3938de2fbc
+
+	measure 'Product Count' = DISTINCTCOUNT('Product'[product_id])
+		formatString: 0
+		lineageTag: 702992cf-d3a6-49a0-8f01-7240e9036515
+
+	measure 'Avg Sales Value per Product' =
+			
+			DIVIDE([Total Sales Value],
+			    [Product Count]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 5657d922-bab8-46df-86f4-350c93c8f508
+
+	measure 'Avg Sales Vol per Product' =
+			
+			DIVIDE([Total Sales Vol],
+			    [Product Count]
+			)
+		lineageTag: 0bb82ecf-dc84-4151-9a61-7c2748323564
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Median Price' = MEDIAN(Sales[price])
+		lineageTag: 275fd9ac-9ca6-41c2-a4d3-501a86d0cbde
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Median Sales Volume' = MEDIAN(Sales[Sales_Volume])
+		lineageTag: d2e28c8a-d301-4eb0-943a-f88df412b807
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promo Lift Index' = ```
+			
+			
+			var promoted = 
+			    CALCULATE(AVERAGE(Sales[sales_value]),Sales[is_promoted] = 1)
+			
+			var nonpromoted = 
+			    CALCULATE(AVERAGE(Sales[sales_value]),Sales[is_promoted] = 0)
+			
+			RETURN
+			
+			    DIVIDE(
+			       promoted,nonpromoted
+			    )
+			```
+		lineageTag: b3343d77-f7e1-4482-ba68-64c18fa1ace0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Is_promoted =
+			
+			IF(VALUES(Sales[is_promoted])=1,1,0)
+		formatString: 0
+		lineageTag: dcfb8186-19d0-4249-bbf5-89a85aebdddb
+
+	measure 'Avg Position Rank' =
+			
+			AVERAGE('Product'[Position Rank])
+		formatString: 0
+		lineageTag: 17706390-f4bb-4c40-82ed-38fc2391ddb9
+
+	measure 'Avg Position Promoted' = ```
+			
+			    CALCULATE(
+			        [Avg Position Rank],Sales[is_promoted]=1)
+			```
+		formatString: 0
+		lineageTag: 8f9f7d31-18ce-457c-94a1-e961db485bba
+
+	measure 'Avg Position non-Promoted' = ```
+			
+			    CALCULATE(
+			        [Avg Position Rank],Sales[is_promoted]=0)
+			```
+		formatString: 0
+		lineageTag: eef423ad-a014-464d-b2a0-ac335df0f4dc
+
+	measure 'Total unit' = SUM(Sales[sales_volume])
+		lineageTag: 1078f34c-bf5b-4063-94e1-2742ad6e0e35
+
+	partition _measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

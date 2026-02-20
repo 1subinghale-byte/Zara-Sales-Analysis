@@ -1,0 +1,34 @@
+table Promotion
+	lineageTag: d675f99b-19a2-41a6-be10-ce91bda496ea
+
+	column is_promoted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 66c940e8-f347-4ae7-9a18-70ec7a45d013
+		summarizeBy: none
+		sourceColumn: is_promoted
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_status
+		dataType: string
+		lineageTag: 1cce9927-fb6c-47a8-b7aa-15266f38f99e
+		summarizeBy: none
+		sourceColumn: promotion_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Promotion = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("DESKTOP-N79RJF1"),
+				    Zara = Source{[Name="Zara"]}[Data],
+				    dim_vPromotion = Zara{[Schema="dim",Item="vPromotion"]}[Data]
+				in
+				    dim_vPromotion
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,113 @@
+table Product
+	lineageTag: b3d40008-3bd7-4475-9b51-6d3d8220c0c7
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 09f09232-2ddb-4e32-b0c9-ca9fbfc680f6
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 6414749f-71f4-4a2a-883a-574de3f1249f
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category
+		dataType: string
+		lineageTag: 6c58ec1f-e316-4be1-9e7e-70ac36ca25fc
+		summarizeBy: none
+		sourceColumn: product_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column section
+		dataType: string
+		lineageTag: 5b2211e1-3ca6-407a-9b6b-5ed14831ac27
+		summarizeBy: none
+		sourceColumn: section
+
+		annotation SummarizationSetBy = Automatic
+
+	column material
+		dataType: string
+		lineageTag: 6d0498f1-5980-4412-9981-7866c85e7d58
+		summarizeBy: none
+		sourceColumn: material
+
+		annotation SummarizationSetBy = Automatic
+
+	column origin
+		dataType: string
+		lineageTag: b2c3e617-b1fa-4360-934a-65bfd10492a6
+		summarizeBy: none
+		sourceColumn: origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_position
+		dataType: string
+		lineageTag: 346fd352-fc56-44f4-a2e3-93bb455ec068
+		summarizeBy: none
+		sourceColumn: product_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: string
+		lineageTag: 73241709-f45a-462d-8f05-edcf70b61d6a
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 06d6fe4d-022b-47b2-b85a-b2875df70d2d
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 0afd098d-3eb0-4ec4-a531-ced25cc1910d
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 4fae0f5d-c920-4116-8420-9f5827c962cb
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Position Rank' = SWITCH('Product'[product_position],"Front of store",1,"End-cap",2,"Aisle",3)
+		formatString: 0
+		lineageTag: 90554c4a-4675-4713-8558-50d5701f53d5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("DESKTOP-N79RJF1"),
+				    Zara = Source{[Name="Zara"]}[Data],
+				    dim_vProduct = Zara{[Schema="dim",Item="vProduct"]}[Data]
+				in
+				    dim_vProduct
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

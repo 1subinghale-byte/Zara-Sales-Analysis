@@ -1,0 +1,10 @@
+relationship AutoDetected_5d0d55a3-5fa6-43e6-aa30-bb67c23f8bef
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Sales.Product_ID
+	toColumn: Product.product_id
+
+relationship b148951a-4f1b-788d-d30d-ba08b4f9e6a6
+	fromColumn: Sales.is_promoted
+	toColumn: Promotion.is_promoted
+

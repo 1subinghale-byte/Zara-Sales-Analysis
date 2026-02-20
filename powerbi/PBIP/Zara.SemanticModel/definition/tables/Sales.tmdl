@@ -1,0 +1,82 @@
+table Sales
+	lineageTag: a0523a40-3aa2-4e7e-ad55-63cf998f4bb8
+
+	column price
+		dataType: double
+		lineageTag: 4da28e1d-0f99-4efa-975b-2c91a647c89c
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sales_value
+		dataType: double
+		lineageTag: e3b44d17-4375-4188-a437-3b42c18922c3
+		summarizeBy: sum
+		sourceColumn: sales_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_promoted
+		dataType: int64
+		formatString: 0
+		lineageTag: d6d86fc3-f850-484d-ac6f-a17bad6b4124
+		summarizeBy: none
+		sourceColumn: is_promoted
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_seasonal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 42d6940c-7380-4c4e-ba15-25be19fc0c8d
+		summarizeBy: none
+		sourceColumn: is_seasonal
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_band
+		dataType: string
+		lineageTag: 78d740b1-d1ca-4cbf-840f-8a37024debaf
+		summarizeBy: none
+		sourceColumn: price_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: e4873547-f76b-4607-93fd-d8de5c3704c8
+		summarizeBy: none
+		sourceColumn: Product_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Volume
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b1093d9-96d5-45c4-8f40-7dd4e3308fde
+		summarizeBy: sum
+		sourceColumn: Sales_Volume
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("DESKTOP-N79RJF1"),
+				    Zara = Source{[Name="Zara"]}[Data],
+				    dbo_Fsales = Zara{[Schema="dbo",Item="Fsales"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_Fsales,{{"is_promoted", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
